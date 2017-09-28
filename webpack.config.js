@@ -44,11 +44,14 @@ module.exports = {
         ]
     },
     plugins: [
-        /* new webpack.optimize.UglifyJsPlugin({ //代码压缩
-         compress: {
-         warnings: false
-         }
-         }),*/
+       new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false, // remove all comments
+            },
+            compress: {
+                warnings: false
+            }
+        })
         new ExtractTextPlugin({
             filename: './styles/[name].css',
         }),  //单独打包css
