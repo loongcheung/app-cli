@@ -60,7 +60,7 @@ module.exports = {
             compress: {
                 warnings: false
             }
-        })
+        }),
         new ExtractTextPlugin({
             filename: './styles/[name].css',
         }),  //单独打包css
