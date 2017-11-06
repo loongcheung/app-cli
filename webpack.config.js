@@ -23,6 +23,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
+                exclude: /^node_modules$/,
                 include: path.resolve(__dirname, 'src', 'scripts')
             },
             {
@@ -31,11 +32,19 @@ module.exports = {
                     fallback: 'style-loader',
                     use: ['css-loader','sass-loader']
                 }),
+                exclude: /^node_modules$/,
                 include: path.resolve(__dirname, 'src', 'styles')
             },
+          /*{
+                test: /\.scss$/,
+                exclude: /^node_modules$/,
+                loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer', 'sass']),
+                include: [APP_PATH]
+            }*/
             {
                 test: /\.(png|jpg|gif)$/,
                 loader: 'url-loader',
+                exclude: /^node_modules$/,
                 query: {
                     limit: 10000,
                     name: 'img/[name].[hash:8].[ext]'
